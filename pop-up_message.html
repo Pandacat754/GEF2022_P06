@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Automated Message from Real or Fake application</title>
+  <style>
+    #popup-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(223, 255, 252, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #popup-content {
+      background-color: white;
+      padding: 20px;
+    }
+    
+    #popup-trigger {
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="popup-container">
+    <div id="popup-content">
+      <h2>Warning!</h2>
+      <p>This may not be the actual website. <br>Would you like to be redirected to the suggested website or continue on this website?</p>
+    </div>
+  </div>
+  
+  <a id="popup-trigger" href="#">Open Pop-up</a>
+
+  <script>
+    const popupTrigger = document.getElementById('popup-trigger');
+    const popupContainer = document.getElementById('popup-container');
+
+    popupTrigger.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the default behavior of the anchor element
+      popupContainer.style.display = 'flex';
+    });
+  </script>
+</body>
+</html>
