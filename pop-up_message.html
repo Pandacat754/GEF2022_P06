@@ -24,6 +24,13 @@
       display: block;
       margin: 20px auto;
     }
+    #popup-button{
+      display: inline-block;
+      margin: 20px auto;
+      border-radius: 5px;
+      background-color: rgb(255, 0, 0) ;
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
@@ -31,6 +38,8 @@
     <div id="popup-content">
       <h2>Warning!</h2>
       <p>This may not be the actual website. <br>Would you like to be redirected to the suggested website or continue on this website?</p>
+      <a id="popup-button" href="https://www.example.com">Redirect to Suggested Website</a>
+      <a id="popup-button" href="#">Continue on This Website</a>
     </div>
   </div>
   
@@ -39,10 +48,17 @@
   <script>
     const popupTrigger = document.getElementById('popup-trigger');
     const popupContainer = document.getElementById('popup-container');
+    const popupButtons = document.querySelectorAll('#popup-button');
 
     popupTrigger.addEventListener('click', function(event) {
       event.preventDefault(); // Prevent the default behavior of the anchor element
       popupContainer.style.display = 'flex';
+    });
+    
+    popupButtons.forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        popupContainer.style.display = 'none';
+      });
     });
   </script>
 </body>
