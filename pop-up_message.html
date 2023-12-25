@@ -9,7 +9,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(223, 255, 252, 0.5);
+      background-color: rgba(116, 211, 174, 0.5);
       display: none;
       justify-content: center;
       align-items: center;
@@ -28,7 +28,14 @@
       display: inline-block;
       margin: 20px auto;
       border-radius: 5px;
-      background-color: rgb(255, 0, 0) ;
+      background-color: rgb(166, 196, 138) ;
+      padding: 20px;
+    }
+    #popup-button2{
+      display: inline-block;
+      margin: 20px auto;
+      border-radius: 5px;
+      background-color: rgb(246, 231, 203) ;
       padding: 20px;
     }
   </style>
@@ -39,7 +46,7 @@
       <h2>Warning!</h2>
       <p>This may not be the actual website. <br>Would you like to be redirected to the suggested website or continue on this website?</p>
       <a id="popup-button" href="https://www.example.com">Redirect to Suggested Website</a>
-      <a id="popup-button" href="#">Continue on This Website</a>
+      <a id="popup-button2" href="#">Continue on This Website</a>
     </div>
   </div>
   
@@ -49,6 +56,7 @@
     const popupTrigger = document.getElementById('popup-trigger');
     const popupContainer = document.getElementById('popup-container');
     const popupButtons = document.querySelectorAll('#popup-button');
+    const continueButton = document.getElementById('popup-button2');
 
     popupTrigger.addEventListener('click', function(event) {
       event.preventDefault(); // Prevent the default behavior of the anchor element
@@ -59,6 +67,9 @@
       button.addEventListener('click', function(event) {
         popupContainer.style.display = 'none';
       });
+    });
+    continueButton.addEventListener('click', function(event) {
+      popupContainer.style.display = 'none';
     });
   </script>
 </body>
